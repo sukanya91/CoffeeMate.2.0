@@ -65,19 +65,25 @@ public class CoffeeFragment  extends ListFragment implements  OnClickListener
             stringName + "?"); builder.setCancelable(false);
     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
       public void onClick(DialogInterface dialog, int id) {
-        Base.coffeeList.remove(coffee); // remove from our list listAdapter.coffeeList.remove(coffee); // update adapters data listAdapter.notifyDataSetChanged(); // refresh adapter
+        Base.coffeeList.remove(coffee);
+        // remove from our list
+        listAdapter.coffeeList.remove(coffee);
+        //update adapters data
+        listAdapter.notifyDataSetChanged();
+        //refresh adapter
       }
     }).setNegativeButton("No", new DialogInterface.OnClickListener() {
       public void onClick(DialogInterface dialog, int id) {
         dialog.cancel();
       } });
     AlertDialog alert = builder.create();
-    alert.show(); }
+    alert.show();
+  }
 
   @Override
   public void onListItemClick(ListView l, View v, int position, long id) {
     Bundle activityInfo = new Bundle(); // Creates a new Bundle object
-    activityInfo.putInt("coffeeID", position);
+    activityInfo.putInt("coffeeID", position+1);
     Intent goEdit = new Intent(getActivity(), Edit.class);
     goEdit.putExtras(activityInfo);
 

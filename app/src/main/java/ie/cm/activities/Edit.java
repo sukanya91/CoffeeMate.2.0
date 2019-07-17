@@ -62,7 +62,7 @@ public class Edit extends Base {
 		String coffeePriceStr = ((EditText) findViewById(R.id.priceEditText)).getText().toString();
 		double ratingValue =((RatingBar) findViewById(R.id.coffeeRatingBar)).getRating();
 		double coffeePrice;
-		goToActivity(this,Home.class, activityInfo);
+
 
 		try {
 			coffeePrice = Double.parseDouble(coffeePriceStr);
@@ -78,9 +78,11 @@ public class Edit extends Base {
 
 			// Update coffee & return home
 
+
 		} else
 			toastMessage("You must Enter Something for Name and Shop");
 
+		goToActivity(this,Home.class, activityInfo);
 	}
 
 	public void toggle(View view) {
