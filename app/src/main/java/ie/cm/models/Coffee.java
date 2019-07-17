@@ -4,29 +4,32 @@ import java.io.Serializable;
 
 public class Coffee implements Serializable
 {
-
-	int coffeeId;
-	String coffeeName;
-	String shop;
-	double rating;
-	double price;
-	boolean favourite;
+	//public static int autoid = 1;
+	public int coffeeId;
+	public String name;
+	public String shop;
+	public double rating;
+	public double price;
+	public boolean favourite;
 
 
 	public Coffee() {}
 
 	public Coffee(String name, String shop, double rating, double price, boolean fav)
 	{
-		this.coffeeName = name;
+		//this.coffeeId = autoid++;
+		this.name = name;
 		this.shop = shop;
 		this.rating = rating;
 		this.price = price;
 		this.favourite = fav;
 	}
-
+	public String name(){
+		return this.name;
+	}
 	@Override
 	public String toString() {
-		return "Coffee [coffeeName=" + coffeeName
+		return "Coffee [name=" + name
 				+ ", shop =" + shop + ", rating=" + rating + ", price=" + price
 				+ ", fav =" + favourite + "]";
 	}
