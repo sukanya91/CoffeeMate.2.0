@@ -61,8 +61,7 @@ public class CoffeeFragment  extends ListFragment implements  OnClickListener
   }
   public void onCoffeeDelete(final Coffee coffee) {
     String stringName = coffee.name();
-    AlertDialog.Builder builder = new AlertDialog.Builder(activity); builder.setMessage("Are you sure you want to Delete the \'Coffee\' " +
-            stringName + "?"); builder.setCancelable(false);
+    AlertDialog.Builder builder = new AlertDialog.Builder(activity); builder.setMessage("Are you sure you want to Delete the \'Coffee\' " + stringName + "?"); builder.setCancelable(false);
     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
       public void onClick(DialogInterface dialog, int id) {
         Base.coffeeList.remove(coffee);
@@ -82,7 +81,8 @@ public class CoffeeFragment  extends ListFragment implements  OnClickListener
 
   @Override
   public void onListItemClick(ListView l, View v, int position, long id) {
-    Bundle activityInfo = new Bundle(); // Creates a new Bundle object
+    Bundle activityInfo = new Bundle();
+    // Creates a new Bundle object
     activityInfo.putInt("coffeeID", position+1);
     Intent goEdit = new Intent(getActivity(), Edit.class);
     goEdit.putExtras(activityInfo);
